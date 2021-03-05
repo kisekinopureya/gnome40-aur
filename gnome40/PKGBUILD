@@ -1,0 +1,232 @@
+# Maintainer: Grey Christoforo <first name at last name dot net>
+
+pkgname=gnome40
+
+# pkgver is for gnome-shell
+pkgver=40.beta
+pkgrel=2
+
+_gds_tag=40.beta # desktop schemas
+_mutter_tag=40.beta # mutter/clutter
+_lgw_tag=40.beta  # libgweather
+_gse_tag=40.beta  # shell-extensions
+_gdu_tag=40.beta  # disks utility
+_gw_tag=40.beta  # weather
+_n_tag=40.beta  # nautilus
+_gsd_tag=40.beta  # settings-daemon
+_gd_tag=40.beta  # desktop
+
+# these repos have no tags :-/
+_gvc_hash=7a621180b46421e356b33972e3446775a504139c  # volume control
+_gss_hash=da0df35aabbc0a4aa30c874b2808808931e37608  # shell sass
+_lgd_hash=8a68efc5bc2b4c3f24ad4a41b1656f8557bb8b44  # libgd
+md5sums=('00633d340e35f448ff7b8b7650b4b3eb'
+         'adc753cc98514bc825042e9a5aab2942'
+         '9a6d4a89a5a1843d2150fbf700dfe276'
+         'fc93d6470cd3b018c1a49f118e8b9581'
+         '5734bbf9b65f084c7788041a676d2c99'
+         '3ac244b756cded6309ed83e25782d3b4'
+         '4ac9177b76cfbea00965f46b388ed338'
+         'f8fc561e228dd581bba04ea16e86b7db'
+         'c0676986db4fa3dcf93bb2bfd9d66574'
+         '74a02884151f87d3f99f88074bb4dc59'
+         '0d549eb5fc02175a69452f79cd47349e'
+         '7d23ae14cdbd858d1b4709bd28eb5be7'
+         'b5c31f704bb293b581c15006595d97e8')
+pkgdesc="A smattering of GNOME 40 prerelease projects, built from their latest tags"
+arch=(x86_64)
+url="https://gitlab.gnome.org/GNOME"
+license=(GPL2)
+depends=(
+accountsservice
+gcr
+gjs
+gnome-bluetooth
+upower
+gnome-session
+gnome-settings-daemon
+gnome-themes-extra
+libcanberra-pulse
+libgdm
+libsecret
+mutter
+nm-connection-editor
+unzip
+gstreamer
+libibus
+libgweather
+gnome-autoar
+gnome-disk-utility
+gst-plugin-pipewire
+dconf
+gobject-introspection-runtime
+libcanberra
+startup-notification
+zenity
+libsm
+gnome-desktop
+libxkbcommon-x11
+libgudev
+libhandy-git
+libinput
+pipewire
+xorg-xwayland
+graphene
+glib2-git
+cantarell-fonts
+adobe-source-code-pro-fonts
+libsoup
+gtk4
+geocode-glib
+geoclue
+libnm
+libnotify
+librsvg
+libwacom
+nss
+pulseaudio
+pulseaudio-alsa
+systemd-libs
+bubblewrap
+iso-codes
+libseccomp
+libxkbfile
+xkeyboard-config
+)
+makedepends=(
+appstream-glib
+python-gobject
+gtk-doc
+gnome-control-center
+evolution-data-server
+gobject-introspection
+git
+meson
+sassc
+asciidoc
+bash-completion
+egl-wayland
+xorg-server
+sysprof
+vala
+glade
+js68
+python-dbusmock
+xf86-input-wacom
+usbguard
+python
+libxslt
+yelp-tools
+)
+conflicts=(
+'gnome-shell'
+'mutter'
+'gsettings-desktop-schemas'
+'libgweather'
+'gnome-shell-extensions'
+'gnome-disk-utility'
+'gnome-weather'
+'nautilus'
+'libnautilus-extension'
+'gnome-settings-daemon'
+'gnome-desktop'
+)
+provides=(
+'gnome-shell=40'
+'mutter=40'
+'gsettings-desktop-schemas=40'
+'libgweather=40'
+'libgweather-3.so=16-64'
+'gnome-shell-extensions=40'
+'gnome-disk-utility=40'
+'gnome-weather=40'
+'nautilus=40'
+'libnautilus-extension=40'
+'libnautilus-extension.so=1-64'
+'gnome-settings-daemon=40'
+'gnome-desktop=40'
+'libgnome-desktop-3.so=19-64'
+)
+source=(
+"gnome-shell-${pkgver}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-shell/-/archive/${pkgver}/gnome-shell-${pkgver}.tar.gz"
+"gsettings-desktop-schemas-${_gds_tag}.tar.gz::https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas/-/archive/${_gds_tag}/gsettings-desktop-schemas-${_gds_tag}.tar.gz"
+"mutter-${_mutter_tag}.tar.gz::https://gitlab.gnome.org/GNOME/mutter/-/archive/${_mutter_tag}/mutter-${_mutter_tag}.tar.gz"
+"libgnome-volume-control-${_gvc_hash}.tar.gz::https://gitlab.gnome.org/GNOME/libgnome-volume-control/-/archive/${_gvc_hash}/libgnome-volume-control-${_gvc_hash}.tar.gz"
+"libgweather-${_lgw_tag}.tar.gz::https://gitlab.gnome.org/GNOME/libgweather/-/archive/${_lgw_tag}/libgweather-${_lgw_tag}.tar.gz"
+"gnome-shell-extensions-${_gse_tag}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-shell-extensions/-/archive/${_gse_tag}/gnome-shell-extensions-${_gse_tag}.tar.gz"
+"gnome-shell-sass-${_gss_hash}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-shell-sass/-/archive/${_gss_hash}/gnome-shell-sass-${_gss_hash}.tar.gz"
+"gnome-disk-utility-${_gdu_tag}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-disk-utility/-/archive/${_gdu_tag}/gnome-disk-utility-${_gdu_tag}.tar.gz"
+"gnome-weather-${_gw_tag}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-weather/-/archive/${_gw_tag}/gnome-weather-${_gw_tag}.tar.gz"
+"nautilus-${_n_tag}.tar.gz::https://gitlab.gnome.org/GNOME/nautilus/-/archive/${_n_tag}/nautilus-${_n_tag}.tar.gz"
+"libgd-${_lgd_hash}.tar.gz::https://gitlab.gnome.org/GNOME/libgd/-/archive/${_lgd_hash}/libgd-${_lgd_hash}.tar.gz"
+"gnome-settings-daemon-${_gsd_tag}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-settings-daemon/-/archive/${_gsd_tag}/gnome-settings-daemon-${_gsd_tag}.tar.gz"
+"gnome-desktop-${_gd_tag}.tar.gz::https://gitlab.gnome.org/GNOME/gnome-desktop/-/archive/${_gd_tag}/gnome-desktop-${_gd_tag}.tar.gz"
+)
+
+prepare() {
+  rm -rf gnome-shell-${pkgver}/subprojects/gvc
+  ln -sf ../../libgnome-volume-control-${_gvc_hash} gnome-shell-${pkgver}/subprojects/gvc
+  mkdir -p xdgdd/gir-1.0
+
+  sed "s/^gsettings_desktop_schemas_req.*/gsettings_desktop_schemas_req = '>= 3.38.0'/g" -i mutter-40.beta/meson.build
+
+  rm -rf gnome-shell-extensions-${_gse_tag}/data/gnome-shell-sass
+  ln -sf ../../gnome-shell-sass-${_gss_hash} gnome-shell-extensions-${_gse_tag}/data/gnome-shell-sass
+
+  rm -rf nautilus-${_n_tag}/subprojects/libgd
+  ln -sf ../../libgd-${_lgd_hash} nautilus-${_n_tag}/subprojects/libgd
+
+  rm -rf gnome-settings-daemon-${_gsd_tag}/subprojects/gvc
+  ln -sf ../../libgnome-volume-control-${_gvc_hash} gnome-settings-daemon-${_gsd_tag}/subprojects/gvc
+}
+
+build() {
+  arch-meson gsettings-desktop-schemas-${_gds_tag} buildc
+  meson compile -C buildc
+
+  arch-meson libgweather-${_lgw_tag} buildd
+  meson compile -C buildd
+
+  arch-meson gnome-shell-extensions-${_gse_tag} builde -D extension_set=all -D classic_mode=true
+  meson compile -C builde
+
+  arch-meson gnome-disk-utility-${_gdu_tag} buildf
+  meson compile -C buildf
+
+  arch-meson gnome-weather-${_gw_tag} buildg
+  meson compile -C buildg
+
+  arch-meson nautilus-${_n_tag} buildh -D docs=true -D packagekit=false
+  meson compile -C buildh
+
+  arch-meson gnome-settings-daemon-${_gsd_tag} buildi
+  meson compile -C buildi
+
+  arch-meson gnome-desktop-${_gd_tag} buildj
+  meson compile -C buildj
+
+  arch-meson mutter-${_mutter_tag} builda -D egl_device=true -D wayland_eglstream=true
+  meson compile -C builda
+
+  export PKG_CONFIG_PATH="${srcdir}/builda/meson-private:${PKG_CONFIG_PATH}"
+  export CPPFLAGS="${CPPFLAGS} -I../mutter-40.beta/clutter -I../builda/clutter/clutter -I../mutter-40.beta/cogl -I../builda/cogl -I../builda/cogl/cogl -I../builda/clutter -I../mutter-40.beta/src -I../mutter-40.beta/clutter/clutter -I../builda/src/meta -I../builda/src"
+  export LDFLAGS="${LDFLAGS} -L../builda/cogl/cogl -L../builda/clutter/clutter -L../builda/src -L../builda/cogl/cogl-pango"
+  export XDG_DATA_DIRS="${srcdir}/xdgdd:$XDG_DATA_DIRS"
+  find . -name '*.gir' -exec ln -s ../../{} xdgdd/gir-1.0 \;
+  arch-meson gnome-shell-${pkgver} buildb -D gtk_doc=True
+  meson compile -C buildb 
+}
+
+package() {
+  DESTDIR="$pkgdir" meson install -C builda
+  DESTDIR="$pkgdir" meson install -C buildb
+  DESTDIR="$pkgdir" meson install -C buildc
+  DESTDIR="$pkgdir" meson install -C buildd
+  DESTDIR="$pkgdir" meson install -C builde
+  DESTDIR="$pkgdir" meson install -C buildf
+  DESTDIR="$pkgdir" meson install -C buildg
+  DESTDIR="$pkgdir" meson install -C buildh
+  DESTDIR="$pkgdir" meson install -C buildi
+  DESTDIR="$pkgdir" meson install -C buildj
+}
+
